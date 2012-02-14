@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=utf-8 />
+    <title>JS Bin</title>
+    <!--[if IE]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <style>
+      article, aside, figure, footer, header, hgroup, 
+      menu, nav, section { display: block; }
+    </style>
+    <script src="../lib/Ink.u.js"></script>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+  </body>
+  <script>
+    // By Daniel R. (sadasant.com)
+    window.onload = function() {
+      Ink.init({ clear: 'rgba(0,0,0,0)' });
+      var C = new Ink.Circ({ x: 10, y: 150, r: 50, fill: '#000' }),
+          a = 0,
+          r = 0,
+          g = 0,
+          b = 0; 
+      Ink.draw(C);
+      C.accel(1);
+      var inter = setInterval(function() {
+        a += 0.2;
+        r += 5;
+        g += r > 255 ? 5 : 0;
+        b += g > 255 ? 5 : 0;
+        C.fill = 'rgba('+r+','+g+','+b+',1)';
+        C.rotation = 1.57 + Math.sin(a);
+        if (a > 40) {
+          clearInterval(inter);
+          C.stop();
+        }
+      }, 100);
+    };
+  </script>
+</html>
