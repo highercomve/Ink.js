@@ -29,11 +29,11 @@
       var R = new Ink.Rect({ x: 10, y: 10, width: 70, height: 70, fill: grad })
       Ink.draw(R);
       R.afterDraw = function() {
-        var pos = this.y/190
-          , grad = Ink.con.createRadialGradient(this.x+20, this.y+20, pos, this.x+32, this.y+30, 30)
+        var pos = this.y / 190
+          , grad = Ink.con.createRadialGradient(this.x + 20, this.y + 20, pos, this.x + 32, this.y + 30, 30)
         grad.addColorStop(pos > 0.5 ? pos-0.5 : 0, "#999")
         grad.addColorStop(pos, "#333")
-        grad.addColorStop(.9-pos/100, "#ffe")
+        grad.addColorStop(.9 - pos / 100, "#ffe")
         this.fill = grad
         if (this.y > 150) this.stop()
       }
