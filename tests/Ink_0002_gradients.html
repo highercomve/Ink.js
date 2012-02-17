@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=utf-8 />
+    <title>JS Bin</title>
+    <!--[if IE]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <style>
+      article, aside, figure, footer, header, hgroup,
+      menu, nav, section { display: block; }
+      canvas { margin: -8px -8px }
+    </style>
+    <script src="../lib/Ink.u.js"></script>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+  </body>
+  <script>
+    // By Daniel R. (sadasant.com)
+    // TODO: Fix background margin with Ink.js?
+    // TODO: Every second parammeter is the callback in Ink.js
+    window.onload = function() {
+      Ink.init({ clear: 'rgba(255,255,255,1)', fill:'#fff' });
+      var grad = Ink.con.createRadialGradient(30, 30, 10, 42, 40, 30)
+      grad.addColorStop(0, "#999")
+      grad.addColorStop(.5, "#333")
+      grad.addColorStop(.9, "#ffe")
+      var R = new Ink.Rect({ x: 10, y: 10, width: 70, height: 70, fill: grad })
+      Ink.draw(R);
+      R.afterDraw = function() {
+        var pos = this.y/190
+          , grad = Ink.con.createRadialGradient(this.x+20, this.y+20, pos, this.x+32, this.y+30, 30)
+        grad.addColorStop(pos > 0.5 ? pos-0.5 : 0, "#999")
+        grad.addColorStop(pos, "#333")
+        grad.addColorStop(.9-pos/100, "#ffe")
+        this.fill = grad
+        if (this.y > 150) this.stop()
+      }
+      R.accel(-1)
+    };
+  </script>
+</html>
