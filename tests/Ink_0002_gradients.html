@@ -20,19 +20,10 @@
     window.onload = function() {
 
       // Starting Ink.js
-      Ink.init({
-        clear : 'rgba(0,0,0,1)'
-      , fill  : '#000'
-      })
+      Ink.init(null, null, null, 'rgba(0,0,0,1)')
 
       // Creating a Rectangle object
-      var R = new Ink.Rect({
-        x : 10
-      , y : 10
-      , width : 70
-      , height : 70
-      , fill : Ink.grad('RADIAL', 30, 30, 10, 42, 40, 30)
-      })
+      var R = new Ink.Rect(10, 10, 70, 70, Ink.grad('RADIAL', 30, 30, 10, 42, 40, 30))
 
       // Adding the colors to the gradient fill
       R.fill.colors([[0,'#999'], [.5,'#333'], [.9,'#FFE'], [1,"#000"]])

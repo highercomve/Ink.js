@@ -10,7 +10,7 @@
       article, aside, figure, footer, header, hgroup, 
       menu, nav, section { display: block; }
     </style>
-    <script src="../lib/Ink.u.js"></script>
+    <script src="../lib/Ink.js"></script>
   </head>
   <body>
     <canvas id="canvas"></canvas>
@@ -18,8 +18,8 @@
   <script>
     // By Daniel R. (sadasant.com)
     window.onload = function() {
-      Ink.init({ clear: 'rgba(0,0,0,0)' });
-      var C = new Ink.Circ({ x: 10, y: 150, r: 50, fill: '#000' }),
+      Ink.init(null, null, null, 'rgba(0,0,0,0)');
+      var C = new Ink.Circ(10, 150, 50, '#000'),
           a = 0,
           r = 0,
           g = 0,
