@@ -18,26 +18,27 @@
   <script>
     // By Daniel R. (sadasant.com)
     window.onload = function() {
-      Ink.init(null, null, null, 'rgba(0,0,0,0)');
-      var C = new Ink.Circ(10, 150, 50, '#000'),
-          a = 0,
-          r = 0,
-          g = 0,
-          b = 0; 
-      Ink.draw(C);
-      C.accel(1);
-      var inter = setInterval(function() {
-        a += 0.2;
-        r += 5;
-        g += r > 255 ? 5 : 0;
-        b += g > 255 ? 5 : 0;
-        C.fill = 'rgba('+r+','+g+','+b+',1)';
-        C.rotation = 1.57 + Math.sin(a);
+      Ink.init(null, null, null, 'rgba(0,0,0,0)')
+      var C = new Ink.Circ(10, 150, 50, '#000')
+        , a = 0
+        , r = 0
+        , g = 0
+        , b = 0
+        , inter
+      Ink.draw(C)
+      C.accel(1)
+      inter = setInterval(function() {
+        a += 0.2
+        r += 5
+        g += r > 255 ? 5 : 0
+        b += g > 255 ? 5 : 0
+        C.fill = 'rgba('+r+','+g+','+b+',1)'
+        C.rotation = 1.57 + Math.sin(a)
         if (a > 40) {
-          clearInterval(inter);
-          C.stop();
+          clearInterval(inter)
+          C.stop()
         }
-      }, 100);
-    };
+      }, 100)
+    }
   </script>
 </html>
