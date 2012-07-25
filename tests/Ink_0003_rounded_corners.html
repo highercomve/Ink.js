@@ -19,6 +19,7 @@
     // By Daniel R. (sadasant.com)
     window.onload = function() {
 
+      // TODO: Make this automatic
       var path = [
         [  5,   0]
       , [ 45,   0, 50,  0, 50,  5]
@@ -28,7 +29,7 @@
       ]
 
       // Starting Ink.js
-      Ink.init(null, null, null, null)
+      Ink.init()
 
       // Creating a Rectangle object
       var R = new Ink.Path({
