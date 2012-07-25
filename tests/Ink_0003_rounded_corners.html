@@ -19,31 +19,24 @@
     // By Daniel R. (sadasant.com)
     window.onload = function() {
 
-      // TODO: Make this automatic
-      var path = [
-        [  5,   0]
-      , [ 45,   0, 50,  0, 50,  5]
-      , [ 50,  45, 50, 50, 45, 50]
-      , [  5,  50,  0, 50,  0, 45]
-      , [  0,   5,  0,  0,  5,  0]
-      ]
-
       // Starting Ink.js
       Ink.init()
 
       // Creating a Rectangle object
-      var R = new Ink.Path({
+      var R = new Ink.Rect({
         x : 10
       , y : 10
-      , path : path
+      , width : 50
+      , height : 50
+      , border_color : '#d0d0d0'
+      , border_radius : 5
       , fill : Ink.grad({
           type : 'LINEAR'
         , x1 : 30
-        , y1 : 50
+        , y1 : 60
         , width : 30
-        , height : 0
+        , height : 10
         })
-      , border_color : '#d0d0d0'
       })
 
       // Adding the colors to the gradient fill
