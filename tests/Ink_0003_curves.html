@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=utf-8 />
+    <title>Ink.js</title>
+    <!--[if IE]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <style>
+      article, aside, figure, footer, header, hgroup,
+      menu, nav, section { display: block; }
+    </style>
+    <script src="../lib/Ink.js"></script>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+  </body>
+  <script>
+    // By Daniel R. (sadasant.com)
+    window.onload = function() {
+
+      var path = [
+        [  5,   0]
+      , [ 45,   0, 50,  0, 50,  5]
+      , [ 50,  45, 50, 50, 45, 50]
+      , [  5,  50,  0, 50,  0, 45]
+      , [  0,   5,  0,  0,  5,  0]
+      ]
+
+      // Starting Ink.js
+      Ink.init(null, null, null, null)
+
+      // Creating a Rectangle object
+      var R = new Ink.Path(10, 10, path, Ink.grad('LINEAR', 30, 50, 30, 0), '#d0d0d0')
+
+      // Adding the colors to the gradient fill
+      R.fill.colors([[0,'#D0D0D0'], [.1,'#F0F0F0'], [.9,'#FFF'], [1,'#DDD']])
+
+      // Drawing the rectangle
+      Ink.draw(R)
+
+    }
+  </script>
+</html>
