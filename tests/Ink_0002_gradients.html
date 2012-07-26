@@ -35,8 +35,8 @@
           }
         , colors = [[0,'#999'], [.5,'#333'], [.9,'#FFE'], [1,"#000"]]
         , R = new Ink.Rect({
-          x : 10
-        , y : 10
+          x : 25
+        , y : 20
         , width  : 70
         , height : 70
         , fill   : Ink.grad(grad)
@@ -51,15 +51,15 @@
       // After drawing each frame...
       R.afterDraw = function() {
         var pos = this.y / 190
-          , x = this.x
-          , y = this.y
+          , x = this._x
+          , y = this._y
         grad.x1 = x + 20
         grad.x2 = x + 32
         grad.y1 = y + 20
         grad.y2 = y + 30
         grad.r1 = pos
         grad.r2 = 30
-        colors[0][0] = pos > 0.5 ? pos-0.5 : 0
+        colors[0][0] = pos > 0.5 ? pos - 0.5 : 0
         colors[1][0] = pos
         colors[2][0] = .9 - pos / 100
         // Replacing the custom fill to a new gradient
