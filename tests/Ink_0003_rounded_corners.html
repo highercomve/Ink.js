@@ -24,29 +24,50 @@
 
       // Creating a Rectangle object
       var R = new Ink.Rect({
-        x : 30
-      , y : 30
+        x : 50
+      , y : 50
       , width : 50
       , height : 50
       , border_color : '#d0d0d0'
       , border_radius : 5
       , fill : Ink.grad({
           type : 'LINEAR'
-        , x1 : 30
-        , y1 : 60
-        , x2 : 30
-        , y2 : 10
+        , x1 : 0
+        , x2 : 0
+        , y1 : 25
+        , y2 : -25
         })
       })
 
-      // Adding the colors to the gradient fill
-      R.fill.colors([[0,'#D0D0D0'], [.1,'#F0F0F0'], [.9,'#FFF'], [1,'#DDD']])
+      var R2 = new Ink.Rect({
+        x : 125
+      , y : 50
+      , width : 50
+      , height : 50
+      , border_color : '#d0d0d0'
+      , fill : Ink.grad({
+          type : 'LINEAR'
+        , x1 : 0
+        , x2 : 0
+        , y1 : 25
+        , y2 : -25
+        })
+      })
 
       // Drawing the rectangle
-      Ink.draw(R)
+      // Adding the colors to the gradient fill
+      R.fill.colors([[0,'#D0D0D0'], [.1,'#F0F0F0'], [.9,'#FFF'], [1,'#DDD']])
+      R2.fill.colors([[0,'#D0D0D0'], [.1,'#F0F0F0'], [.9,'#FFF'], [1,'#DDD']])
 
+      // Drawing the rectangle
+      Ink.draw(R, R2)
+
+      // Let's rotate both rectangles!
+      // Instead of using a function per rectangle,
+      // we can use just one of them.
       R.afterDraw = function() {
         this.rotation += .01
+        R2.rotation += .01
       }
 
     }
