@@ -58,3 +58,11 @@ Manage multiple canvas elements separatedly
 What if users want to handle many canvas? This could be interesting,
 maybe it could need to build separated instances of itself per canvas.
   
+
+Interact with object with the mouse (or touch)
+----------------------------------------------
+
+See the way to interact with object with the mouse or allow other kind
+of interactions without consuming much memory and without harming the
+behavior of uninteractive objects.
+  
